@@ -17,41 +17,34 @@ class WordCounter {
       const char = this.text[i];
       
       if (char === " ") {
-        console.log("primer if");
         if (map.has(word)) {
             const val = map.get(word);
             map.set(word, val! + 1);
-            console.log("sumo valor");
         } else {
             map.set(word, 1);
-            console.log("agrego palabra");
         }
             word = "";
       }else{
         word += char;
-        console.log("sumo un char");
-        console.log(word);
       }
-      console.log("fin del for, se quedo un word? " + word);
     }
+
+    console.log("Fin del ciclo for, se quedo un word?: ' " + word + " '");
 
     //Agregar la última palabra si existe
     if (word) {
-        console.log("ultimo if");
-      if (map.has(word)) {
-        const val = map.get(word);
-        map.set(word, val!+1);
-        console.log("sumo valor");
-      } else {
-        map.set(word, 1);
-        console.log("agrego palabra");
-      }
+        if (map.has(word)) {
+            const val = map.get(word);
+            map.set(word, val! + 1);
+        } else {
+            map.set(word, 1);
+        }
     }
     return map;
   }
 }
 
-const text = "Una vida sin pan o una vida feliz vida";
+const text = "Una vida sin pan o una vida feliz";
 const wordCounter = new WordCounter(text);
 console.log(wordCounter.getText());
 
